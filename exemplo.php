@@ -32,14 +32,14 @@ $px[52]="0000"; //Merchant Category Code “0000” ou MCC ISO18245
 $px[53]="986"; //Moeda, “986” = BRL: real brasileiro - ISO4217
 $px[54]="10.00"; //Valor da transação, se comentado o cliente especifica o valor da transação no próprio app. Utilizar o . como separador decimal. Máximo: 13 caracteres.
 $px[58]="BR"; //“BR” – Código de país ISO3166-1 alpha 2
-$px[59]="RODRIGO CORREA E CASTRO"; //Nome do beneficiário/recebedor. Máximo: 25 caracteres.
-$px[60]="PARAGUACU"; //Nome cidade onde é efetuada a transação. Máximo 15 caracteres.
-/*
-O campo 62 é um campo facultativo, que permite especificar um identificador da transação.
-$px[62][05]="phpqrcodepix"; //Campo facultativo. Identificador da transação.
-$px[62][50][00]="BR.GOV.BCB.BRCODE"; //Payment system specific template - GUI
-$px[62][50][01]="1.0.0"; //Payment system specific template - versão
-*/
+$px[59]=mb_strimwidth("RODRIGO CORREA E CASTRO", 0, 25); //Nome do beneficiário/recebedor. Máximo: 25 caracteres.
+$px[60]=mb_strimwidth("PARAGUACU", 0, 15); //Nome cidade onde é efetuada a transação. Máximo 15 caracteres.
+
+//O campo 62 é um campo facultativo, que permite especificar um identificador da transação.
+$px[62][05]="nossonumero"; //Campo facultativo. Identificador da transação.
+#$px[62][50][00]="BR.GOV.BCB.BRCODE"; //Payment system specific template - GUI
+#$px[62][50][01]="1.0.0"; //Payment system specific template - versão
+
 
 //Caso queira visualizar a matriz dos dados que serão montados no pix descomente a linha a seguir.
 //print_r($px);
